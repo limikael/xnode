@@ -4,11 +4,14 @@
 		<script src="../src/xnode.js"></script>
 		<script>
 
+			function extend(target, base) {
+				target.prototype = Object.create(base.prototype);
+				target.prototype.constructor = target;
+			}
+
 			function run() {
 				var xnode=new XNode("div");
-
 				xnode.style.marginLeft="100px";
-
 				xnode.node.innerHTML="hello";
 
 				var xdiv=new XDiv();
@@ -16,11 +19,19 @@
 				xdiv.style.marginLeft="200px";
 
 
+				var xdiv2=new XDiv();
+				xdiv2.innerHTML="hello inside";
+				xdiv.appendChild(xdiv2);
+
 
 				document.body.appendChild(xnode);
 				document.body.appendChild(xdiv);
 //				document.body.removeChild(xnode);
 
+				var xbutton=new XButton();
+				xbutton.innerHTML="hello world";
+				xbutton.addEventListener("click",function() { console.log("click"); });	
+				document.body.appendChild(xbutton);
 			}
 		</script>
 	</head>

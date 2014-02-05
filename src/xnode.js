@@ -1,48 +1,112 @@
-function extend(target, base) {
-	target.prototype = Object.create(base.prototype);
-	target.prototype.constructor = target;
-}
-
+/**
+ * The basic xnode class.
+ * It sets the underlying node element by calling
+ * document.createElement
+ */
 function XNode(type) {
 	this.node=document.createElement(type);
 }
 
-Object.defineProperty(XNode.prototype,"style",{
-	get: function() {
-		return this.node.style;
+/**
+ * This method creates an extended class using
+ * the XNode class defined above.
+ */
+function createExtendedXNodeElement(elementType) {
+	var f=function() {
+		XNode.call(this,elementType);
+	};
+
+	f.prototype=Object.create(XNode.prototype);
+	f.prototype.constructor=f;
+
+	return f;
+}
+
+/**
+ * Create a read only property that returns the
+ * value of the corresponding property of the
+ * underlying node object.
+ */
+function createXNodeReadOnlyProperty(propertyName) {
+	Object.defineProperty(XNode.prototype,propertyName,{
+		get: function() {
+			return this.node[propertyName];
+		}
+	});
+}
+
+/**
+ * Create a read write property that operates on
+ * the corresponding property of the underlying
+ * node object.
+ */
+function createXNodeReadWriteProperty(propertyName) {
+	Object.defineProperty(XNode.prototype,propertyName,{
+		get: function() {
+			return this.node[propertyName];
+		},
+
+		set: function(value) {
+			this.node[propertyName]=value;
+		}
+	});
+}
+
+/**
+ * Create a method that routes the call through, down
+ * to the same method on the underlying node object.
+ */
+function createXNodeMethod(methodName) {
+	XNode.prototype[methodName]=function() {
+		return this.node[methodName].apply(this.node,arguments);
 	}
-});
+}
 
-Object.defineProperty(XNode.prototype,"innerHTML",{
-	get: function() {
-		return this.node.innerHTML;
-	},
+/**
+ * Modify the Node.property function, so that it accepts
+ * XNode objects. All XNode objects will be changed to
+ * the underlying node objects, and the corresponding
+ * method will be called.
+ */
+function createNodeToXNodeMethodWrapper(methodName) {
+	var originalFunction=Node.prototype[methodName];
 
-	set: function(value) {
-		this.node.innerHTML=value;
+	Node.prototype[methodName]=function() {
+		for (var a in arguments) {
+			if (arguments[a] instanceof XNode)
+				arguments[a]=arguments[a].node;
+		}
+
+		return originalFunction.apply(this,arguments);
 	}
-});
-
-function XDiv() {
-	XNode.call(this,"div");
 }
 
-extend(XDiv,XNode)
+/**
+ * Set up read only properties.
+ */
+createXNodeReadOnlyProperty("style");
 
-var Node_appendChild=Node.prototype.appendChild;
-Node.prototype.appendChild=function(child) {
-	if (child instanceof XNode)
-		Node_appendChild.call(this,child.node);
+/**
+ * Set up read/write properties.
+ */
+createXNodeReadWriteProperty("innerHTML");
 
-	else
-		Node_appendChild.call(this,child);
-}
+/**
+ * Set up methods to be routed to the underlying node object.
+ */
+createXNodeMethod("appendChild");
+createXNodeMethod("removeChild");
+createXNodeMethod("addEventListener");
+createXNodeMethod("removeEventListener");
 
-var Node_removeChild=Node.prototype.removeChild;
-Node.prototype.removeChild=function(child) {
-	if (child instanceof XNode)
-		Node_removeChild.call(this,child.node);
+/**
+ * Set up methods on Node.property.
+ */
+createNodeToXNodeMethodWrapper("appendChild");
+createNodeToXNodeMethodWrapper("removeChild");
 
-	else
-		Node_removeChild.call(this,child);
-}
+/**
+ * Create extended classes.
+ */
+var XDiv=createExtendedXNodeElement("div");
+var XButton=createExtendedXNodeElement("button");
