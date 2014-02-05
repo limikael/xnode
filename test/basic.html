@@ -10,7 +10,7 @@
 			}
 
 			function run() {
-				var xnode=new XNode("div");
+				/*var xnode=new XNode("div");
 				xnode.style.marginLeft="100px";
 				xnode.node.innerHTML="hello";
 
@@ -26,12 +26,39 @@
 
 				document.body.appendChild(xnode);
 				document.body.appendChild(xdiv);
-//				document.body.removeChild(xnode);
 
 				var xbutton=new XButton();
 				xbutton.innerHTML="hello world";
 				xbutton.addEventListener("click",function() { console.log("click"); });	
-				document.body.appendChild(xbutton);
+				document.body.appendChild(xbutton);*/
+
+				function MyDialog(text) {
+					XDiv.call(this);
+
+					this.okButton=new XButton();
+					this.okButton.style.position="absolute";
+					this.okButton.style.bottom="10px";
+					this.okButton.style.left="50%";
+					this.okButton.style.width="100px";
+					this.okButton.style.marginLeft="-50px";
+					this.okButton.innerHTML="Ok";
+					this.appendChild(this.okButton);
+
+					this.style.background="#ff0000";
+					this.style.width="300px";
+					this.style.height="200px";
+					this.style.position="absolute";
+
+					this.textElement=new XDiv();
+					this.textElement.innerHTML=text;
+					this.textElement.style.top="10px";
+					this.appendChild(this.textElement);
+				}
+
+				extend(MyDialog,XNode);
+
+				var myDialog=new MyDialog("hello world");
+				document.body.appendChild(myDialog);
 			}
 		</script>
 	</head>
