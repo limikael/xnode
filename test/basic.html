@@ -4,7 +4,7 @@
 		<script src="../src/xnode.js"></script>
 		<script>
 
-			function extend(target, base) {
+			function inherits(target, base) {
 				target.prototype = Object.create(base.prototype);
 				target.prototype.constructor = target;
 			}
@@ -37,7 +37,7 @@
 					});
 				}
 
-				extend(MyDialog,xnode.Div);
+				inherits(MyDialog,xnode.Div);
 
 				var myDialog=new MyDialog("hello world");
 				document.body.appendChild(myDialog);
