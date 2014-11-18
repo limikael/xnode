@@ -10,32 +10,10 @@
 			}
 
 			function run() {
-				/*var xnode=new XNode("div");
-				xnode.style.marginLeft="100px";
-				xnode.node.innerHTML="hello";
-
-				var xdiv=new XDiv();
-				xdiv.innerHTML="hello again";
-				xdiv.style.marginLeft="200px";
-
-
-				var xdiv2=new XDiv();
-				xdiv2.innerHTML="hello inside";
-				xdiv.appendChild(xdiv2);
-
-
-				document.body.appendChild(xnode);
-				document.body.appendChild(xdiv);
-
-				var xbutton=new XButton();
-				xbutton.innerHTML="hello world";
-				xbutton.addEventListener("click",function() { console.log("click"); });	
-				document.body.appendChild(xbutton);*/
-
 				function MyDialog(text) {
-					XDiv.call(this);
+					xnode.Div.call(this);
 
-					this.okButton=new XButton();
+					this.okButton=new xnode.Button();
 					this.okButton.style.position="absolute";
 					this.okButton.style.bottom="10px";
 					this.okButton.style.left="50%";
@@ -49,13 +27,17 @@
 					this.style.height="200px";
 					this.style.position="absolute";
 
-					this.textElement=new XDiv();
+					this.textElement=new xnode.Div();
 					this.textElement.innerHTML=text;
 					this.textElement.style.top="10px";
 					this.appendChild(this.textElement);
+
+					this.okButton.on("click",function() {
+						console.log("button click");
+					});
 				}
 
-				extend(MyDialog,XNode);
+				extend(MyDialog,xnode.Div);
 
 				var myDialog=new MyDialog("hello world");
 				document.body.appendChild(myDialog);
