@@ -38,10 +38,10 @@ This example create a dialog box and attaches it to the body:
 
 ````
 function MyDialog(text) {
-  xnode.Div.call(this);
+	xnode.Div.call(this);
 
 	this.okButton=new xnode.Button();
-  this.okButton.style.position="absolute";
+	this.okButton.style.position="absolute";
 	this.okButton.style.bottom="10px";
 	this.okButton.style.left="50%";
 	this.okButton.style.width="100px";
@@ -60,7 +60,7 @@ function MyDialog(text) {
 	this.appendChild(this.textElement);
 
 	this.okButton.on("click",function() {
-	  console.log("button click");
+		console.log("button click");
 	});
 }
 
