@@ -94,6 +94,8 @@
 	 * Set up read/write properties.
 	 */
 	createXNodeReadWriteProperty("innerHTML");
+	createXNodeReadWriteProperty("href");
+	createXNodeReadWriteProperty("id");
 
 	/**
 	 * Set up methods to be routed to the underlying node object.
@@ -133,4 +135,7 @@
 	 */
 	target.Div = createExtendedXNodeElement("div");
 	target.Button = createExtendedXNodeElement("button");
+	target.Ul = createExtendedXNodeElement("ul");
+	target.Li = createExtendedXNodeElement("li");
+	target.A = createExtendedXNodeElement("a");
 })();

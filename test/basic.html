@@ -25,6 +25,7 @@
 					this.style.width="300px";
 					this.style.height="200px";
 					this.style.position="absolute";
+					this.style.top="100px";
 
 					this.textElement=new xnode.Div();
 					this.textElement.innerHTML=text;
@@ -40,6 +41,10 @@
 
 				var myDialog=new MyDialog("hello world");
 				document.body.appendChild(myDialog);
+
+				var a=new xnode.A("test");
+				a.href="http://blblab/";
+				document.body.appendChild(a);
 			}
 		</script>
 	</head>
