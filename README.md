@@ -40,32 +40,32 @@ This example create a dialog box and attaches it to the body:
 function MyDialog(text) {
 	xnode.Div.call(this);
 
-	this.okButton=new xnode.Button();
-	this.okButton.style.position="absolute";
-	this.okButton.style.bottom="10px";
-	this.okButton.style.left="50%";
-	this.okButton.style.width="100px";
-	this.okButton.style.marginLeft="-50px";
-	this.okButton.innerHTML="Ok";
+	this.okButton = new xnode.Button();
+	this.okButton.style.position = "absolute";
+	this.okButton.style.bottom = "10px";
+	this.okButton.style.left = "50%";
+	this.okButton.style.width = "100px";
+	this.okButton.style.marginLeft = "-50px";
+	this.okButton.innerHTML = "Ok";
 	this.appendChild(this.okButton);
 
-	this.style.background="#ff0000";
-	this.style.width="300px";
-	this.style.height="200px";
-	this.style.position="absolute";
+	this.style.background = "#ff0000";
+	this.style.width = "300px";
+	this.style.height = "200px";
+	this.style.position = "absolute";
 
-	this.textElement=new xnode.Div();
-	this.textElement.innerHTML=text;
-	this.textElement.style.top="10px";
+	this.textElement = new xnode.Div();
+	this.textElement.innerHTML = text;
+	this.textElement.style.top = "10px";
 	this.appendChild(this.textElement);
 
-	this.okButton.on("click",function() {
+	this.okButton.on("click", function() {
 		console.log("button click");
 	});
 }
 
-inherits(MyDialog,xnode.Div);
+inherits(MyDialog, xnode.Div);
 
-var myDialog=new MyDialog("hello world");
+var myDialog = new MyDialog("hello world");
 document.body.appendChild(myDialog);
 ````
