@@ -13,13 +13,12 @@
 				function MyDialog(text) {
 					xnode.Div.call(this);
 
-					this.okButton=new xnode.Button();
+					this.okButton=new xnode.Button("Ok");
 					this.okButton.style.position="absolute";
 					this.okButton.style.bottom="10px";
 					this.okButton.style.left="50%";
 					this.okButton.style.width="100px";
 					this.okButton.style.marginLeft="-50px";
-					this.okButton.innerHTML="Ok";
 					this.appendChild(this.okButton);
 
 					this.style.background="#ff0000";

@@ -15,9 +15,9 @@
 	 * This method creates an extended class using
 	 * the XNode class defined above.
 	 */
-	function createExtendedXNodeElement(elementType) {
-		var f = function() {
-			XNode.call(this, elementType);
+	function createExtendedXNodeElement(elementType, content) {
+		var f = function(content) {
+			XNode.call(this, elementType, content);
 		};
 
 		f.prototype = Object.create(XNode.prototype);
