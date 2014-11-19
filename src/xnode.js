@@ -4,8 +4,11 @@
 	 * It sets the underlying node element by calling
 	 * document.createElement
 	 */
-	function XNode(type) {
+	function XNode(type, content) {
 		this.node = document.createElement(type);
+
+		if (content !== undefined)
+			this.node.innerHTML = content;
 	}
 
 	/**
