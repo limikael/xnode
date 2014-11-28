@@ -138,4 +138,7 @@
 	target.Ul = createExtendedXNodeElement("ul");
 	target.Li = createExtendedXNodeElement("li");
 	target.A = createExtendedXNodeElement("a");
+	target.Option = createExtendedXNodeElement("option");
+	target.Select = createExtendedXNodeElement("select");
+
 })();
