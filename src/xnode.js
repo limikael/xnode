@@ -140,5 +140,6 @@
 	target.A = createExtendedXNodeElement("a");
 	target.Option = createExtendedXNodeElement("option");
 	target.Select = createExtendedXNodeElement("select");
+	target.Input = createExtendedXNodeElement("input");
 
 })();
