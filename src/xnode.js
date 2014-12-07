@@ -96,6 +96,8 @@
 	createXNodeReadWriteProperty("innerHTML");
 	createXNodeReadWriteProperty("href");
 	createXNodeReadWriteProperty("id");
+	createXNodeReadWriteProperty("value");
+	createXNodeReadWriteProperty("type");
 
 	/**
 	 * Set up methods to be routed to the underlying node object.
@@ -141,5 +143,4 @@
 	target.Option = createExtendedXNodeElement("option");
 	target.Select = createExtendedXNodeElement("select");
 	target.Input = createExtendedXNodeElement("input");
-
 })();
