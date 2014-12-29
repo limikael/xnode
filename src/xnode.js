@@ -98,6 +98,7 @@
 	createXNodeReadWriteProperty("id");
 	createXNodeReadWriteProperty("value");
 	createXNodeReadWriteProperty("type");
+	createXNodeReadWriteProperty("className");
 
 	/**
 	 * Set up methods to be routed to the underlying node object.
@@ -143,4 +144,5 @@
 	target.Option = createExtendedXNodeElement("option");
 	target.Select = createExtendedXNodeElement("select");
 	target.Input = createExtendedXNodeElement("input");
+	target.Nav = createExtendedXNodeElement("nav");
 })();
