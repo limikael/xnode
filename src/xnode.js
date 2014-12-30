@@ -145,4 +145,5 @@
 	target.Select = createExtendedXNodeElement("select");
 	target.Input = createExtendedXNodeElement("input");
 	target.Nav = createExtendedXNodeElement("nav");
+	target.Span = createExtendedXNodeElement("span");
 })();
