@@ -99,6 +99,7 @@
 	createXNodeReadWriteProperty("value");
 	createXNodeReadWriteProperty("type");
 	createXNodeReadWriteProperty("className");
+	createXNodeReadWriteProperty("src");
 
 	/**
 	 * Set up methods to be routed to the underlying node object.
@@ -153,4 +154,5 @@
 	target.Tr = createExtendedXNodeElement("tr");
 	target.Td = createExtendedXNodeElement("td");
 	target.Th = createExtendedXNodeElement("th");
+	target.Img = createExtendedXNodeElement("img");
 })();
