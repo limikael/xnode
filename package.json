@@ -1,6 +1,6 @@
 {
   "name": "xnode",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Extensible Version of the HTML DOM Node Object",
   "main": "src/xnode.js",
   "directories": {
