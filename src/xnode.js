@@ -147,4 +147,10 @@
 	target.Nav = createExtendedXNodeElement("nav");
 	target.Span = createExtendedXNodeElement("span");
 	target.P = createExtendedXNodeElement("p");
+	target.Table = createExtendedXNodeElement("table");
+	target.Thead = createExtendedXNodeElement("thead");
+	target.Tbody = createExtendedXNodeElement("tbody");
+	target.Tr = createExtendedXNodeElement("tr");
+	target.Td = createExtendedXNodeElement("td");
+	target.Th = createExtendedXNodeElement("th");
 })();
