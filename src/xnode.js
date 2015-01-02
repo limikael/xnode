@@ -157,4 +157,10 @@
 	target.Img = createExtendedXNodeElement("img");
 	target.I = createExtendedXNodeElement("i");
 	target.B = createExtendedXNodeElement("b");
+	target.H1 = createExtendedXNodeElement("h1");
+	target.H2 = createExtendedXNodeElement("h2");
+	target.H3 = createExtendedXNodeElement("h3");
+	target.H4 = createExtendedXNodeElement("h4");
+	target.H5 = createExtendedXNodeElement("h5");
+	target.H6 = createExtendedXNodeElement("h6");
 })();
