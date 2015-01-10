@@ -163,4 +163,5 @@
 	target.H4 = createExtendedXNodeElement("h4");
 	target.H5 = createExtendedXNodeElement("h5");
 	target.H6 = createExtendedXNodeElement("h6");
+	target.Iframe = createExtendedXNodeElement("iframe");
 })();
