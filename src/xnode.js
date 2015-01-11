@@ -89,6 +89,7 @@
 	 * Set up read only properties.
 	 */
 	createXNodeReadOnlyProperty("style");
+	createXNodeReadOnlyProperty("files");
 
 	/**
 	 * Set up read/write properties.
